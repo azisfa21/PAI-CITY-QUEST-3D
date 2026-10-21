@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Petualangan EduWorld adalah prototipe game belajar pixel art untuk anak SD."
+    />
+    <title>Petualangan EduWorld: Belajar Bersama</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <script src="https://cdn.jsdelivr.net/npm/phaser@3.80.1/dist/phaser.min.js"></script>
+    <script type="module" src="./src/main.js"></script>
+  </head>
+  <body>
+    <main class="app-shell">
+      <section id="welcome-screen" class="welcome-screen" aria-labelledby="game-title">
+        <div class="welcome-card">
+          <div class="brand-mark" aria-hidden="true">
+            <span class="brand-sun"></span>
+            <span class="brand-hill brand-hill-back"></span>
+            <span class="brand-hill brand-hill-front"></span>
+            <span class="brand-flower">✿</span>
+          </div>
+          <p class="eyebrow">DUNIA BELAJAR PENUH PETUALANGAN</p>
+          <h1 id="game-title">Petualangan <span>EduWorld</span></h1>
+          <p class="welcome-copy">
+            Jelajahi Taman Ceria, temui Bu Rani, dan tunjukkan pengetahuanmu!
+          </p>
+          <div class="demo-notice" role="status">
+            <span class="status-dot"></span>
+            Mode demo lokal · Multiplayer realtime belum diaktifkan
+          </div>
+          <label class="name-field" for="player-name">
+            Nama tampilan
+            <input
+              id="player-name"
+              name="player-name"
+              type="text"
+              maxlength="18"
+              autocomplete="nickname"
+              value="Petualang"
+              placeholder="Masukkan nama panggilan"
+            />
+          </label>
+          <button id="start-game" class="primary-button" type="button">
+            Mulai petualangan <span aria-hidden="true">→</span>
+          </button>
+          <p class="welcome-footnote">Tidak perlu akun · Jangan gunakan nama lengkap</p>
+        </div>
+        <div class="welcome-decoration decoration-left" aria-hidden="true">✿</div>
+        <div class="welcome-decoration decoration-right" aria-hidden="true">✦</div>
+      </section>
+
+      <section id="game-screen" class="game-screen" aria-label="Permainan EduWorld" hidden>
+        <header class="game-header">
+          <a class="game-brand" href="./" aria-label="Kembali ke halaman awal">
+            <span class="mini-brand" aria-hidden="true">E</span>
+            <span>EduWorld</span>
+          </a>
+          <div class="demo-badge"><span class="status-dot"></span> DEMO LOKAL</div>
+          <button id="exit-game" class="exit-button" type="button">Keluar</button>
+        </header>
+
+        <div class="game-layout">
+          <div id="game-container" class="game-container" aria-label="Dunia permainan"></div>
+          <div id="quiz-panel" class="quiz-backdrop" hidden>
+            <section class="quiz-card" role="dialog" aria-modal="true" aria-labelledby="quiz-title">
+              <div class="quiz-topline">
+                <span class="quiz-category">MISI TAMAN CERIA</span>
+                <span class="quiz-sparkle" aria-hidden="true">✦</span>
+              </div>
+              <h2 id="quiz-title">Pertanyaan untukmu</h2>
+              <p id="quiz-question" class="quiz-question"></p>
+              <div id="quiz-answers" class="quiz-answers"></div>
+              <p id="quiz-feedback" class="quiz-feedback" aria-live="polite"></p>
+            </section>
+          </div>
+          <div id="toast" class="toast" role="status" aria-live="polite"></div>
+        </div>
+
+        <div class="touch-controls" aria-label="Kontrol sentuh">
+          <div class="direction-pad" aria-label="Arah gerak">
+            <button type="button" data-direction="up" aria-label="Bergerak ke atas">▲</button>
+            <button type="button" data-direction="left" aria-label="Bergerak ke kiri">◀</button>
+            <button type="button" data-direction="down" aria-label="Bergerak ke bawah">▼</button>
+            <button type="button" data-direction="right" aria-label="Bergerak ke kanan">▶</button>
+          </div>
+          <button id="touch-interact" class="interact-touch" type="button">Bicara</button>
+        </div>
+        <footer class="game-footer">
+          <span>Gerak: <kbd>WASD</kbd> / <kbd>↑</kbd><kbd>↓</kbd><kbd>←</kbd><kbd>→</kbd></span>
+          <span>Interaksi: <kbd>E</kbd> atau <kbd>Spasi</kbd></span>
+        </footer>
+      </section>
+    </main>
+  </body>
+</html>
